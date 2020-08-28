@@ -1,4 +1,4 @@
-# characteristicsOOP
+# OOP Characteristics
 
 <table>
     <tr>
