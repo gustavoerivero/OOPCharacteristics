@@ -1,4 +1,4 @@
-# Características POO
+# Características de POO
 
 <table>
     <tr>
