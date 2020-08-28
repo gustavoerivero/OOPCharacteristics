@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Potencial.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Potencial.h
+Summation.h
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Summation.h
+Potencial.cpp
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Potencial.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Sum.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Sum.h
+vector
+-
+Sum.cpp
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Sum.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Summation.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Summation.h
+Sum.h
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Sum.h
+Summation.cpp
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Summation.cpp
+
+C:/Users/Gustavo Rivero/CLionProjects/Operations/main.cpp
+vector
+-
+iostream
+-
+Potencial.h
+C:/Users/Gustavo Rivero/CLionProjects/Operations/Potencial.h
+
