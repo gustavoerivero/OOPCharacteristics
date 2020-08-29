@@ -10,8 +10,8 @@ template <class Type>
 class Sum {
 public:
     Sum();
-    Type calculate(Type a, Type b);
-    Type calculate(std::vector<Type> numbers);
+    Type virtual calculate(Type a, Type b);
+    Type virtual calculate(std::vector<Type> numbers);
 };
 
 #include "Sum.cpp"

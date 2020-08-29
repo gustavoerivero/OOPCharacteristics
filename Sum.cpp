@@ -7,7 +7,7 @@ Sum<Type>::Sum(){};
 
 template <class Type>
 Type Sum<Type>::calculate(Type a, Type b){
-    return (a + b);
+    return a + b;
 };
 
 template <class Type>

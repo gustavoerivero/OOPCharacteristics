@@ -16,8 +16,10 @@
 // Se da inicio al programa.
 int main() {
 
-    // Se declara la variable de soporte para las diversas respuestas del usuario.
-    int answer;
+    // Se declara la variable de soporte para las diversas respuestas del usuario. (Uso de punteros)
+    int answer, *p;
+    p = new int;
+    p = &answer;
 
     // Ciclo del Menu.
     do{
@@ -32,21 +34,21 @@ int main() {
                          "(3) Sumatoria.\n"
                          "(4) Potenciacion.\n"
                          "Ingrese su respuesta: ";
-            std::cin >> answer;
+            std::cin >> *p;
 
             // Si la respuesta es incorrecta.
-            if(answer != 0 && answer != 1 && answer != 2 && answer != 3 && answer != 4)
+            if(*p != 0 && *p != 1 && *p != 2 && *p != 3 && *p != 4)
                 std::cout << "\nIngrese un valor admitible.\n\n";
 
             // Si la respuesta es incorrecta, se repite el ciclo.
-        }while(answer != 0 && answer != 1 && answer != 2 && answer != 3 && answer != 4);
+        }while(*p != 0 && *p != 1 && *p != 2 && *p != 3 && *p != 4);
 
         // Si la respuesta es '0' sale del programa.
-        if(answer == 0)
+        if(*p == 0)
             return 0;
 
         // Punto de control dependiendo de la respuesta dada por el usuario.
-        switch(answer){
+        switch(*p){
 
             // Suma de dos digitos.
             case 1: {
@@ -145,7 +147,7 @@ int main() {
                 std::cin >> number;
 
                 // Se muestra al usuario el resultado de la operacion.
-                std::cout   << "\n\nLa sumatoria de '"          << iteration
+                std::cout   << "\n\nLa sumatoria de '"      << iteration
                             << "' iteraciones con valor '"  << number
                             << "' da como resultado '"      << Summation.calculate(iteration, number) << "'\n\n";
 
@@ -175,7 +177,7 @@ int main() {
                 std::cin >> index;
 
                 // Se muestra al usuario el resultado de la operacion.
-                std::cout   << "\nLa podentcia de '"          << base
+                std::cout   << "\nLa potencia de '"         << base
                             << "' con indice de '"          << index
                             << "' da como resultado '"      << Potencial.calculate(index, base) << "'\n\n";
 
@@ -195,17 +197,17 @@ int main() {
                          "(0) Salir.\n"
                          "(1) Realizar una nueva operacion.\n"
                          "Ingrese su respuesta: ";
-            std::cin >> answer;
+            std::cin >> *p;
 
             // Si la respuesta no se encuentra en las opciones dadas.
-            if(answer != 0 && answer != 1)
+            if(*p != 0 && *p != 1)
                 std::cout << "\nIngrese un valor admitible.\n\n";
 
             // Si la respuesta no se encuentra en las opciones dadas se repite el ciclo.
-        }while(answer != 0 && answer != 1);
+        }while(*p != 0 && *p != 1);
 
         // Si el usuario desea continuar con las operaciones se repetira el ciclo.
-    } while(answer != 0);
+    } while(*p != 0);
 
     // Fin del programa.
     return 0;
