@@ -70,7 +70,7 @@ int main() {
                 std::cin >> *pb;
 
                 // Se indica el resultado al usuario.
-                std::cout << "\n\nLa operacion da '" << a << " + " << b << " = " << Sum.calculate(*pa, *pb) << "'\n\n";
+                std::cout << "\n\nLa operacion da '" << *pa << " + " << *pb << " = " << Sum.calculate(*pa, *pb) << "'\n\n";
 
                 // Liberación de memoria.
                 delete pa, pb;
@@ -87,27 +87,29 @@ int main() {
                 Sum<float> Sum;
 
                 // Se declara la variable de soporte para las cantidades de numeros que se van a sumar y se inicia en '0'.
-                int cant = 0;
+                int cant = 0, *pc;
+                pc = new int;
+                pc = &cant;
 
                 // Ciclo de verificacion: Se deben sumar mas de dos numeros.
                 do{
 
                     // Se solicita al usuario la cantidad de numeros a sumar.
                     std::cout << "\n¿Cuantos numeros va a sumar?: ";
-                    std::cin >> cant;
+                    std::cin >> *pc;
 
                     // Si la cantidad de numeros a sumar es menor a dos.
-                    if(cant <= 2)
+                    if(*pc <= 2)
                         std::cout << "\nIngrese un valor mayor a dos.\n\n";
 
                     // Si la cantidad de numeros a sumar es menor a dos, se repite el ciclo.
                 }while(cant <= 2);
 
                 // Se instancia y se declara el vector de tipo 'float' con tamaño 'cant'.
-                std::vector<float> numbers = std::vector<float>(cant);
+                std::vector<float> numbers = std::vector<float>(*pc);
 
                 // Se solicita al usuario los numeros a sumar.
-                for (int i = 0; i < cant; i++) {
+                for (int i = 0; i < *pc; i++) {
                     float number = 0;
                     std::cout << "Ingrese valor n°[" << (i + 1) << "]: ";
                     std::cin >> number;
@@ -115,8 +117,11 @@ int main() {
                 }
 
                 // Se muestra al usuario el resultado de la operacion.
-                std::cout << "\n\nLa suma de '" << cant << "' digitos da como resultado '" << Sum.calculate(numbers)
+                std::cout << "\n\nLa suma de '" << *pc << "' digitos da como resultado '" << Sum.calculate(numbers)
                           << "'\n\n";
+
+                // Liberación de memoria.
+                delete pc;
 
                 // Fin de la opcion.
                 break;
