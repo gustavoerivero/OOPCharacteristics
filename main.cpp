@@ -4,7 +4,9 @@
  * - Abstraccion.
  * - Sobrecarga.
  * - Polimorfismo.
- * Adicional: Recursividad.
+ * Adicional:
+ * - Recursividad.
+ * - Memoria Dinámica.
  * Created by Gustavo Rivero on 26-08-2020.
  */
 
@@ -56,17 +58,22 @@ int main() {
                 // Se instancia la clase Suma de tipo 'float'.
                 Sum<float> Sum;
 
-                // Se declaran las variables que seran sumadas y se inician en '0'.
-                float a = 0, b = 0;
+                // Se declaran las variables que seran sumadas y se inician en '0' (Uso de punteros).
+                float a = 0, b = 0, *pa, *pb;
+                pa = new float, pb = new float;
+                pa = &a, pb = &b;
 
                 // Se solicitan los valores a sumar.
                 std::cout << "\nIngrese el valor para 'a': ";
-                std::cin >> a;
+                std::cin >> *pa;
                 std::cout << "Ingrese el valor para 'b': ";
-                std::cin >> b;
+                std::cin >> *pb;
 
                 // Se indica el resultado al usuario.
-                std::cout << "\n\nLa operacion da '" << a << " + " << b << " = " << Sum.calculate(a, b) << "'\n\n";
+                std::cout << "\n\nLa operacion da '" << a << " + " << b << " = " << Sum.calculate(*pa, *pb) << "'\n\n";
+
+                // Liberación de memoria.
+                delete pa, pb;
 
                 // Fin de la opcion.
                 break;
@@ -122,34 +129,41 @@ int main() {
                 // Se instancia la clase de Sumatoria de tipo 'float'.
                 Summation<float> Summation;
 
-                // Se declara la variable de soporte que indicara la cantidad de iteraciones de la sumatoria y se inicia en '0'.
-                int iteration = 0;
+                // Se declara la variable de soporte que indicara la cantidad de iteraciones de la sumatoria y se inicia en '0' (Uso de punteros).
+                int iteration = 0, *pi;
+                pi = new int;
+                pi = &iteration;
 
                 // Ciclo de verificacion: La sumatoria debe tener mas de dos iteraciones.
                 do{
 
                     // Se solicita al usuario la cantidad de iteraciones.
                     std::cout << "\n¿Cuantas iteraciones va a realizar la sumatoria?: ";
-                    std::cin >> iteration;
+                    std::cin >> *pi;
 
                     // Si la cantidad de iteraciones es menor o igual a dos.
-                    if(iteration <= 2)
+                    if(*pi <= 2)
                         std::cout << "Ingrese un valor mayor a dos.\n\n";
 
                     // Si la cantidad de iteraciones es menor o igual a dos se repite el ciclo.
-                }while(iteration <= 2);
+                }while(*pi <= 2);
 
                 // Se declara la variable de soporte que indicara el numero que se va a sumar.
-                float number = 0;
+                float number = 0, *pn;
+                pn = new float;
+                pn = &number;
 
                 // Se solicita al usuario el numero que desea sumar.
                 std::cout << "¿Que numero desea sumar?: ";
-                std::cin >> number;
+                std::cin >> *pn;
 
                 // Se muestra al usuario el resultado de la operacion.
-                std::cout   << "\n\nLa sumatoria de '"      << iteration
-                            << "' iteraciones con valor '"  << number
-                            << "' da como resultado '"      << Summation.calculate(iteration, number) << "'\n\n";
+                std::cout   << "\n\nLa sumatoria de '"      << *pi
+                            << "' iteraciones con valor '"  << *pn
+                            << "' da como resultado '"      << Summation.calculate(*pi, *pn) << "'\n\n";
+
+                // Liberación de memoria.
+                delete pi, pn;
 
                 // Fin de la opcion.
                 break;
@@ -162,24 +176,31 @@ int main() {
                 // Se instancia la clase de Potenciacion de tipo 'float'.
                 Potencial<float> Potencial;
 
-                // Se declara la variable de soporte que indicara el indice de la potencia.
-                int index = 0;
+                // Se declara la variable de soporte que indicara el indice de la potencia (Uso de memoria).
+                int index = 0, *pi;
+                pi = new int;
+                pi = &index;
 
-                // Se declara la variable de soporte que indicara la base de la potencia.
-                float base = 0;
+                // Se declara la variable de soporte que indicara la base de la potencia (Uso de memoria).
+                float base = 0, *pb;
+                pb = new float;
+                pb = &base;
 
                 // Se solicita al usuario la base de la potencia.
                 std::cout << "\n\n¿A que numero desea sacar su potencia?: ";
-                std::cin >> base;
+                std::cin >> *pb;
 
                 // Se solicita al usuario el indice de la potencia.
                 std::cout << "¿Cual es el indice de la potencia?: ";
-                std::cin >> index;
+                std::cin >> *pi;
 
                 // Se muestra al usuario el resultado de la operacion.
-                std::cout   << "\nLa potencia de '"         << base
-                            << "' con indice de '"          << index
-                            << "' da como resultado '"      << Potencial.calculate(index, base) << "'\n\n";
+                std::cout   << "\nLa potencia de '"         << *pb
+                            << "' con indice de '"          << *pi
+                            << "' da como resultado '"      << Potencial.calculate(*pi, *pb) << "'\n\n";
+
+                // Liberación de memoria.
+                delete pi, pb;
 
                 // Fin de la opcion.
                 break;
@@ -208,6 +229,9 @@ int main() {
 
         // Si el usuario desea continuar con las operaciones se repetira el ciclo.
     } while(*p != 0);
+
+    // Liberación de memoria.
+    delete p;
 
     // Fin del programa.
     return 0;
